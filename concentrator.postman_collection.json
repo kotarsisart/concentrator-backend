@@ -1,0 +1,47 @@
+{
+  "info": {
+    "name": "Concentrator API",
+    "_postman_id": "b6c81f76-4d3d-4c8a-bf67-9b5b13a87f9a",
+    "description": "Test hands for Concentrator backend",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Get all languages",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/languages",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["languages"]
+        }
+      }
+    },
+    {
+      "name": "Create language",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"English\",\n  \"code\": \"en\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/languages",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["languages"]
+        }
+      }
+    }
+  ]
+}
