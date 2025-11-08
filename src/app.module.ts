@@ -6,6 +6,8 @@ import { LanguagesModule } from './languages/languages.module';
 import { UserModule } from './user/user.module';
 import { AuthModule } from './auth/auth.module';
 import { PrismaService } from '../prisma/prisma.service';
+import { CounterModule } from './counter/counter.module';
+import { ContactModule } from './contact/contact.module';
 
 /**
  * AppModule — root module of the application.
@@ -29,6 +31,8 @@ import { PrismaService } from '../prisma/prisma.service';
     LanguagesModule,
     UserModule,
     AuthModule,
+    CounterModule,
+    ContactModule,
   ],
   providers: [PrismaService],
 })

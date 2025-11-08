@@ -28,3 +28,18 @@ model User {
   role        String      @default("admin")
   createdAt   DateTime    @default(now())
 }
+
+model Counter {
+  id        Int      @id @default(autoincrement())
+  key       String   @unique   // например: "hero_focus"
+  value     Int      @default(12000)
+  updatedAt DateTime @updatedAt
+}
+
+model ContactMessage {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String?
+  message   String
+  createdAt DateTime @default(now())
+}
