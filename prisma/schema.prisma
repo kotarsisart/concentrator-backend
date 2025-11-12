@@ -7,28 +7,6 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-/**
- * Language — dictionary of available languages.
- *
- * Fields:
- * - id (PK, autoincrement)
- * - code (unique language code, e.g. "en", "uk")
- * - name (human-readable name)
- */
-model Language {
-  id   Int    @id @default(autoincrement())
-  code String @unique
-  name String
-}
-
-model User {
-  id          Int         @id   @default(autoincrement())
-  email       String      @unique
-  password    String
-  role        String      @default("admin")
-  createdAt   DateTime    @default(now())
-}
-
 model Counter {
   id        Int      @id @default(autoincrement())
   key       String   @unique   // например: "hero_focus"
