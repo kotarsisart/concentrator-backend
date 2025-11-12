@@ -13,7 +13,20 @@ async function bootstrap() {
   ];
 
   app.enableCors({
-    origin: allowedOrigins,
+    origin: (origin, callback) => {
+      // ✅ Разрешаем без origin (например, curl, Postman)
+      if (!origin) return callback(null, true);
+
+      // ✅ Нормализуем origin без слэшей в конце
+      const cleanOrigin = origin.replace(/\/$/, '');
+
+      if (allowedOrigins.includes(cleanOrigin)) {
+        callback(null, true);
+      } else {
+        console.warn(`❌ Blocked CORS request from: ${origin}`);
+        callback(new Error('Not allowed by CORS'));
+      }
+    },
     methods: ['GET', 'POST'],
     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true,
