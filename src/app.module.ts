@@ -2,9 +2,6 @@ import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import * as Joi from 'joi';
 
-import { LanguagesModule } from './languages/languages.module';
-import { UserModule } from './user/user.module';
-import { AuthModule } from './auth/auth.module';
 import { PrismaService } from '../prisma/prisma.service';
 import { CounterModule } from './counter/counter.module';
 import { ContactModule } from './contact/contact.module';
@@ -28,9 +25,6 @@ import { ContactModule } from './contact/contact.module';
         JWT_EXPIRES_IN: Joi.string().default('1h'),
       }),
     }),
-    LanguagesModule,
-    UserModule,
-    AuthModule,
     CounterModule,
     ContactModule,
   ],
